@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Condition with loading</title>
+</head>
+	<body>
+		
+
+		<div id="app">
+			
+			<template v-if="loading">
+				Welcome back to VueJS again!
+			</template>
+
+			<template v-else>
+					<img src="http://1.bp.blogspot.com/-Z2cWBVLb-n8/UhikrByWBhI/AAAAAAAAC3o/AbvlPNGr0EU/s1600/countdown.gif" alt="" width="200px">
+			</template>
+
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		
+		<script>
+
+			let app = new Vue({
+
+				el :'#app',
+				data: {
+					loading: false
+				},
+
+				mounted() {
+					setTimeout(() => {
+						this.loading = true
+					}, 5000)
+				}
+
+			});		
+
+		</script>
+
+	</body>
+</html>
