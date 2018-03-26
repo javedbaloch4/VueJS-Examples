@@ -15,3 +15,4 @@ If you're beginner in VueJS you can simple use vueJS CDN which is included in al
 
 ### Issues 
 You you come across any error in any script please report them I love to solve them
+

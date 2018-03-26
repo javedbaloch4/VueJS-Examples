@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJS Loops</title>
+</head>
+	<body>
+		
+		<div id="app">
+			
+			<template v-if="!loading">
+				<img src="https://loading.io/spinners/balls/lg.circle-slack-loading-icon.gif" alt="">
+			</template>
+
+			<template v-else>
+				<div v-for="post in posts">
+					<h1>{{ post.name }}</h1>
+					<p>{{ post.content }}</p>
+				</div>
+			</template>
+
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script type="text/javascript">
+
+			let app = new Vue({
+
+				el: '#app',
+				data: {
+					posts: [],
+					loading: false
+				},
+
+				mounted() {
+
+					setTimeout(() => {
+						this.loading = true
+					}, 2500),
+
+					this.posts = [
+						{
+							id: 1,
+						 	name:'Lorem ipsum.', 
+						 	content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quasi!'
+						},
+
+						{
+							id: 2, 
+							name:'Lorem ipsum dolor.', 
+							content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quasi! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim at nesciunt iste, molestiae eius assumenda rem fugiat iure velit.'
+						},
+
+						{
+							id: 3, 
+							name:'Lorem ipsum.', 
+							content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quasi!'
+						},
+
+						{
+							id: 4, 
+							name:'Lorem ipsum dolor sit.', 
+							content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quasi!'
+						}
+
+					]
+				}
+
+			});
+			
+		</script>
+
+	</body>
+</html>

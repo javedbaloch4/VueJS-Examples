@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJS Loops</title>
+</head>
+	<body>
+		
+		<div id="app">
+
+			<p v-for="x in 10">2 x {{ x }} = {{ x*2 }}</p>
+			<hr>
+			<p v-for="x in 10">11 x {{ x }} = {{ x*11 }}</p>
+
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script type="text/javascript">
+
+			let app = new Vue({
+
+				el: '#app',
+				data: {
+				}
+
+			});
+			
+		</script>
+
+	</body>
+</html>
