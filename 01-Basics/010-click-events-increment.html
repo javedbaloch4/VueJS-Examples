@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJS - Click Events</title>
+</head>
+	<body>
+		
+		<div id="app">
+
+			<!-- <a href="#" @click="count += 10">Click here</a> -->
+			<a href="#" @click="increment">Click here</a>
+
+			{{ count }}
+			
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script type="text/javascript">
+
+			let app = new Vue({
+
+				el: '#app',
+				data: {
+					count: 0
+				},
+
+				methods: {
+					increment() {
+						this.count++
+					}
+				}
+
+			});
+			
+			
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJS - Click Events</title>
+</head>
+	<body>
+		
+		<div id="app">
+
+			<a href="#" v-on:click="clicked = true">Click here</a>
+
+			<template v-if="clicked">
+				Clicked
+			</template>
+	
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script type="text/javascript">
+
+			let app = new Vue({
+
+				el: '#app',
+				data: {
+					clicked: false
+				}
+
+			});
+			
+			
+		</script>
+
+	</body>
+</html>
