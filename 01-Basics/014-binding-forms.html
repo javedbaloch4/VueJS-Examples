@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJS - Click Events</title>
+</head>
+	<body>
+		
+		<div id="app">
+
+			<form action="#" @submit.prevent="submit">
+
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type="text" id="name" v-model="form.name">
+				</div><br>
+
+				<div class="form-group">
+					<label for="email">Email:</label>
+					<input type="email" id="email" v-model="form.email">
+				</div><br>
+
+				<div class="form-group">
+					<label for="password">Password:</label>
+					<input type="password" v-model="form.password">
+				</div><br>
+
+				<div class="form-group">
+					<button type="submit">Submit</button>
+				</div>	
+
+			</form>
+
+			{{ form }}
+
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script type="text/javascript">
+
+			let app = new Vue({
+
+				el: '#app',
+				data: {
+						form: {
+						name: null,
+						email: null,
+						password: null,	
+					}
+				},
+
+				methods: {
+					submit() {
+						// axois.post('/regsiter', this.form)
+						console.log(this.form);
+					}
+				}
+
+			});
+
+			
+		</script>
+
+	</body>
+</html>

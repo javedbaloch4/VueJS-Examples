@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJS - Click Events</title>
+</head>
+	<body>
+		
+		<div id="app">
+
+			<form @submit.prevent="submit">
+				
+				<textarea cols="30" rows="10" v-model="feedback"></textarea>
+		
+				<button type="submit">Submit</button>
+
+			</form>
+
+			<div style="white-space: pre-line;">{{ feedback }}</div>
+			
+
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script type="text/javascript">
+
+			let app = new Vue({
+
+				el: '#app',
+				data: {
+					feedback: null
+				},
+
+				methods: {
+					submit() {
+						console.log(this.feedback)
+					}
+				}
+
+			});
+
+
+			
+		</script>
+
+	</body>
+</html>
