@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJS - Click Events</title>
+</head>
+	<body>
+		
+		<div id="app">
+			<form @submit.prevent="submit">
+				<div class="form-group">
+					Milk
+					<input type="checkbox" v-model="checkbox" value="milk">
+				</div>
+
+				<div class="form-group">
+					Tea
+					<input type="checkbox" v-model="checkbox" value="tea">
+				</div>
+				<div class="form-group">
+					Coffie
+					<input type="checkbox" v-model="checkbox" value="coffie">
+				</div>
+			</form>
+
+			{{ checkbox  }}
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script type="text/javascript">
+			let app = new Vue({
+				el: '#app',
+				data: {
+					checkbox: []
+				},
+
+				methods: {
+					submit() {
+						console.log(this.checkbox)
+					}
+				}
+			});
+		</script>
+
+	</body>
+</html>

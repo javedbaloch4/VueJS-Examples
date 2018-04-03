@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJS - Click Events</title>
+</head>
+	<body>
+		
+		<div id="app">
+
+			<input type="checkbox" v-model="autoplay" @change="setAutoplay">Autoplay is	
+
+			<!-- {{ autoplay === true ? 'enabled' : 'disabled' }} -->
+
+			<span v-if="autoplay === true">
+				enabled
+			</span>
+
+			<span v-else>
+				disabled
+			</span>
+
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script type="text/javascript">
+
+			let app = new Vue({
+
+				el: '#app',
+				data: {
+					autoplay: false
+				},
+
+				methods: {
+					setAutoplay() {
+						console.log(this.autoplay)
+					}
+				}
+
+			});
+
+
+			
+		</script>
+
+	</body>
+</html>

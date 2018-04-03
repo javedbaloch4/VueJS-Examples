@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJS - Click Events</title>
+</head>
+	<body>
+		
+		<div id="app">
+
+			<input type="radio" value="cats" v-model="choice"> Cats
+
+			<input type="radio" value="dogs" v-model="choice"> Dogs
+
+			<template v-if="choice === 'cats'">
+				Meow
+			</template>
+
+			<template v-else-if="choice === 'dogs'">
+				Woof 
+			</template>
+
+			<template v-else>
+				Please select choice
+			</template>
+
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script type="text/javascript">
+			let app = new Vue({
+				el: '#app',
+				data: {
+					choice: null
+				},
+
+				methods: {
+					submit() {
+						console.log(this.choice)
+					}
+				}
+			});
+		</script>
+
+	</body>
+</html>
