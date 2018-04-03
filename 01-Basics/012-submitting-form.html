@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJS - Click Events</title>
+</head>
+	<body>
+		
+		<div id="app">
+
+			<form action="#" @submit.prevent="submit">
+				<button type="submit">Submit</button>
+			</form>
+	
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script type="text/javascript">
+
+			let app = new Vue({
+
+				el: '#app',
+				methods: {
+					submit() {
+						alert('Submitted');
+					}
+				}
+
+			});
+			
+			
+		</script>
+
+	</body>
+</html>
