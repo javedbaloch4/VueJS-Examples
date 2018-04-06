@@ -1,0 +1,45 @@
+<!DOCTYPE html>                                                 
+<html lang="en">                                                
+<head>                                                          
+	<meta charset="UTF-8">                                      
+	<title>VueJS - Dropdowns</title>                            
+</head>                                                         
+	<body>                     
+
+	
+		<div id="app">
+			
+			<select v-model="country" @change="changed">
+				<option value="">Please Choose</option>
+				<option value="UK">United Kingdom</option>
+				<option value="IN">India</option>
+				<option value="US">United States</option>
+			</select>
+				
+			{{ country }}
+
+		</div>
+
+		                                                        
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+                                                                
+		<script>                                                
+                                                                
+			let app = new Vue({                                
+            	el: '#app',
+            	data: {
+            		country: ""
+            	},
+
+            	methods: {
+            		changed () {
+            			console.log(this.country)
+            		}
+            	}                                     
+			});                                                 
+			                                                    
+		</script>                                               
+                                                                
+                                                                
+	</body>                                                     
+</html>                                                         

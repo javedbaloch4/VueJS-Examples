@@ -1,0 +1,61 @@
+<!DOCTYPE html>                                                 
+<html lang="en">                                                
+<head>                                                          
+	<meta charset="UTF-8">                                      
+	<title>VueJS - Dropdowns</title>                            
+</head>                                                         
+	<body>                     
+
+	
+		<div id="app">
+			
+			<form @submit.prevent="submit">
+
+				<select v-model="country">
+					<option value="">Please Choose</option>
+					<option :value="country.code" v-for="country in countries">{{ country.name }}</option>
+				</select>
+
+				<button>Submit</button>
+			{{ country }}
+
+			</form>
+
+
+
+		</div>
+
+		                                                        
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+                                                                
+		<script>                                                
+                                                                
+			let app = new Vue({                                
+            	el: '#app',
+            	data: {
+            		country: '',
+            		countries: []
+            	},
+
+            	methods: {
+            		submit() {
+            			console.log(this.country)
+            		}
+            	},
+
+            	mounted()  {
+            		setTimeout( () => {
+            			this.countries = [
+            				{ code: 'IN', name: 'India'},
+            				{ code: 'UK', name: 'United Kingdom'},
+            				{ code: 'US', name: 'United States'},
+            			]
+            		}, 100)
+            	}                              
+			});                                                 
+			                                                    
+		</script>                                               
+                                                                
+                                                                
+	</body>                                                     
+</html>                                                         
