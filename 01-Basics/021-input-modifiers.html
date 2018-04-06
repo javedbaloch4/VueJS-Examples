@@ -1,0 +1,34 @@
+<!DOCTYPE html>                                                 
+<html lang="en">                                                
+<head>                                                          
+	<meta charset="UTF-8">                                      
+	<title>VueJS - Dropdowns</title>                            
+</head>                                                         
+	<body>                     
+
+		<div id="app">
+
+			Price: <input type="text" v-model.number="price">
+
+
+			{{ price + shipping }}			
+
+		</div>
+		                                                        
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+                                                                
+		<script>                                                
+                                                                
+			let app = new Vue({                                
+            	el: '#app',
+            	data: {
+            		price: '',
+            		shipping: 5.5
+            	}
+			});                                                 
+			                                                    
+		</script>                                               
+                                                                
+                                                                
+	</body>                                                     
+</html>                                                         

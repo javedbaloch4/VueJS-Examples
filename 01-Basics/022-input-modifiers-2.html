@@ -1,0 +1,39 @@
+<!DOCTYPE html>                                                 
+<html lang="en">                                                
+<head>                                                          
+	<meta charset="UTF-8">                                      
+	<title>VueJS - Dropdowns</title>                            
+</head>                                                         
+	<body>                     
+
+		<div id="app">
+
+			<form @submit.prevent="submit">
+				
+				<textarea v-model.trim="tweet" cols="30" rows="10"></textarea>
+
+				<br>{{ tweet.length }} is out of {{ max }}
+
+				<p v-if="tweet.length > max"> More then 140 charecters </p>
+
+			</form>
+
+		</div>
+		                                                        
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+                                                                
+		<script>                                                
+                                                                
+			let app = new Vue({                                
+            	el: '#app',
+            	data: {
+            		tweet: '',
+            		max: 140
+            	}
+			});                                                 
+			                                                    
+		</script>                                               
+                                                                
+                                                                
+	</body>                                                     
+</html>                                                         
