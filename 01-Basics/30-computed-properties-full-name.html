@@ -1,0 +1,56 @@
+<!DOCTYPE html>                                                 
+<html lang="en">                                                
+<head>                                                          
+	<meta charset="UTF-8">                                      
+	<title>VueJS - Dropdowns</title>  
+</head>                                 
+	<body>      
+
+		<div id="app">
+
+			<form @submit.prevent="submit">
+				
+				<div class="form__group">
+					
+					<input type="text" v-model="form.firstName">
+
+				</div>
+
+				<div class="form__group">
+					
+					<input type="text" v-model="form.lastName">
+
+				</div>
+
+				<button>Submit</button>
+
+				{{ fullName }}
+
+			</form>		
+		
+		</div>
+		                                                        
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script>                                                
+        	let app = new Vue({
+
+        		el: "#app",
+        		data: {
+        			form: {
+        				firstName: '',
+        				lastName: '',
+        			}
+        		},
+
+        		computed: {
+         			
+         			fullName() {
+         				return this.form.firstName + ' ' + this.form.lastName
+         			}
+
+        		}
+        	});  
+		</script>                                               
+	</body>                                                     
+</html>                                                         
