@@ -1,0 +1,38 @@
+<!DOCTYPE html>                                                 
+<html lang="en">                                                
+<head>                                                          
+	<meta charset="UTF-8">                                      
+	<title>VueJS - Computed setters</title>  
+	
+	<style>
+	
+		/*.pre {
+			white-space: pre-line;
+		}
+	*/
+	</style>
+</head>                                 
+	<body>      
+
+		<div id="app">
+		
+			<pre v-html="text"></pre>
+
+		</div>
+		                                                        
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script>                                                
+        
+        	let app = new Vue({
+
+        		el: "#app",
+
+        		data: {
+        			text: "<strong>Some Raw text</strong>\nHello"
+				}
+        
+        	});  
+		</script>                                               
+	</body>                                                     
+</html>                                                         
