@@ -1,0 +1,55 @@
+<!DOCTYPE html>                                                 
+<html lang="en">                                                
+<head>                                                          
+	<meta charset="UTF-8">                                      
+	<title>VueJS - Computed setters</title>  
+	
+	<style>
+	
+		/*.pre {
+			white-space: pre-line;
+		}
+	*/
+	</style>
+</head>                                 
+	<body>      
+
+		<div id="app">
+
+			{{ description  | turncate(30) }}
+
+		</div>
+		                                                        
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script>                                                
+        
+        	let app = new Vue({
+
+        		el: "#app",
+
+        		data: {
+
+					 description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, voluptatem, excepturi eos nemo, placeat deserunt enim, minus ut veritatis delectus quidem laboriosam ab incidunt fugit quod velit? Enim reiciendis, deleniti.'
+				},
+
+				filters: {
+
+					turncate (value, length) {
+
+						if ( value.length > length ) {
+
+							return value.substring(0, length) + '...'
+
+						}
+
+						return value;
+
+					}
+
+				}
+        
+        	});  
+		</script>                                               
+	</body>                                                     
+</html>                                                         
