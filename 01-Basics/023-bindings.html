@@ -1,0 +1,36 @@
+<!DOCTYPE html>                                                 
+<html lang="en">                                                
+<head>                                                          
+	<meta charset="UTF-8">                                      
+	<title>VueJS - Dropdowns</title>                            
+</head>                                                         
+	<body>                     
+
+		<div id="app">
+			
+			<!-- <a :href="url">Google</a> -->
+			
+			<!-- <p :title="replies + ' replies'">Hover over me</p> -->
+			
+			<p :title="`${replies} replies`">Hover over me</p>
+
+		</div>
+		                                                        
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+                                                                
+		<script>                                                
+                                                                
+			let app = new Vue({                                
+            	el: '#app',
+            	data: {
+            		// url: 'https://google.com'
+            		replies: 5
+            		
+            	}
+			});                                                 
+			                                                    
+		</script>                                               
+                                                                
+                                                                
+	</body>                                                     
+</html>                                                         

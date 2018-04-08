@@ -1,0 +1,82 @@
+<!DOCTYPE html>                                                 
+<html lang="en">                                                
+<head>                                                          
+	<meta charset="UTF-8">                                      
+	<title>VueJS - Dropdowns</title>  
+	<style>
+		
+		.danger {
+			color: red;
+		}
+
+		.warning {
+			color: orange;
+		}
+
+	</style>                          
+</head>                                 
+	<body>                     
+
+		<div id="app">
+
+			<!-- <textarea cols="30" rows="10" v-model="tweet" :class="{ 'danger' : tweet.length > 10 }"></textarea> -->
+			<!-- <textarea cols="30" rows="10" v-model="tweet" :class="tweetClass" @input="check"></textarea> -->
+
+			<textarea cols="30" rows="10" v-model="tweet" :class="tweetClass"></textarea>
+			
+			<br>
+
+			{{ tweet.length }} out of 140
+			
+		</div>
+		                                                        
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+                                                                
+		<script>                                                
+                  
+              let app = new Vue({
+
+              	el: '#app',
+              	data: {
+              		tweet: '',
+              		/* tweetClass: {
+              			warning: false,
+              			danger: false
+              		} */
+
+              	},
+
+              	/*methods: {
+              		check() {
+
+              			 if ( this.tweet.length > 130) {
+              				this.tweetClass.warning = true
+              				this.tweetClass.danger = false
+              			}
+
+              			if ( this.tweet.length > 140 ) {
+              				this.tweetClass.warning = false
+              				this.tweetClass.danger = true
+              			}  
+
+              		},*/
+
+              	computed: {
+
+              		tweetClass() {
+              			return {
+              				warning: this.tweet.length > 120,
+              				danger: this.tweet.length > 150	
+              			}
+              			
+              		}
+          		}
+
+          });                                              
+			                 
+			                                                    
+		</script>                                               
+                                                                
+                                                                
+	</body>                                                     
+</html>                                                         

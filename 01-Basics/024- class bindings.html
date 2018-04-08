@@ -1,0 +1,43 @@
+<!DOCTYPE html>                                                 
+<html lang="en">                                                
+<head>                                                          
+	<meta charset="UTF-8">                                      
+	<title>VueJS - Dropdowns</title>  
+	<style>
+		
+		.danger {
+			color: red;
+		}
+
+		.warning {
+			text-decoration: underline;
+			font-weight: bold;
+		}
+
+	</style>                          
+</head>                                 
+	<body>                     
+
+		<div id="app">
+			
+			<p :class="{ 'danger': error, 'warning': warning === true }">Some text</p>
+			
+		</div>
+		                                                        
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+                                                                
+		<script>                                                
+                                                                
+			let app = new Vue({                                
+            	el: '#app',
+            	data: {
+					error: true,
+					warning: true       		
+            	}
+			});                                                 
+			                                                    
+		</script>                                               
+                                                                
+                                                                
+	</body>                                                     
+</html>                                                         

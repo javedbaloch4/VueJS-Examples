@@ -1,0 +1,61 @@
+<!DOCTYPE html>                                                 
+<html lang="en">                                                
+<head>                                                          
+	<meta charset="UTF-8">                                      
+	<title>VueJS - Dropdowns</title>  
+	<style>
+		
+		.read {
+			opacity: .5;
+		}
+
+	</style>                          
+</head>                                 
+	<body>                     
+
+		<div id="app">
+
+			<div class="post" v-for="post in posts" :class="{ 'read' : post.read }">
+				{{ post.name }}
+				<a href="#" v-if="!post.read" @click.prevent="markRead(post.id)">Mark read</a>
+			</div>
+			
+		</div>
+		                                                        
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+                                                                
+		<script>                                                
+                                                                
+			let app = new Vue({                                
+            	el: '#app',
+            	data: {
+            		posts: [
+            			{ id: 1, name: 'Post one', read: true },
+            			{ id: 2, name: 'Post two', read: false },
+            			{ id: 3, name: 'Post Three', read: false },
+            			{ id: 4, name: 'Post Four', read: false },
+            		]
+            	},
+
+            	methods: {
+
+            		markRead(id) {
+
+            			let post = this.posts.find((post) => {
+            				return post.id === id;
+            			});
+
+            			if (post) {
+            				post.read = true
+            			}
+
+            		}
+            		
+            	}
+			});                                                 
+			                                                    
+		</script>                                               
+                                                                
+                                                                
+	</body>                                                     
+</html>                                                         
