@@ -1,0 +1,35 @@
+<!DOCTYPE html>                                                 
+<html lang="en">                                                
+<head>                                                          
+	<meta charset="UTF-8">                                      
+	<title>VueJS - Dropdowns</title>  
+</head>                                 
+	<body>      
+
+		<div id="app">
+
+			<input type="text" v-model="greeting">
+
+			{{ reverseGreeting }}			
+		
+		</div>
+		                                                        
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script>                                                
+        	let app = new Vue({
+
+        		el: "#app",
+        		data: {
+        			greeting: ''
+        		},
+
+        		computed: {
+        			reverseGreeting() {
+        				return this.greeting.split('').reverse().join('');
+        			}
+        		}
+        	});  
+		</script>                                               
+	</body>                                                     
+</html>                                                         

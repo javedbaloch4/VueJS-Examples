@@ -1,0 +1,58 @@
+<!DOCTYPE html>                                                 
+<html lang="en">                                                
+<head>                                                          
+	<meta charset="UTF-8">                                      
+	<title>VueJS - Dropdowns</title>  
+</head>                                 
+	<body>                     
+		<div id="app">
+			
+		{{ greetings }}
+		{{ greetings }}
+		{{ greetings }}
+
+		<!-- {{ greetings() }}
+		{{ greetings() }}
+		{{ greetings() }} -->
+
+		</div>
+		                                                        
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script>                                                
+            
+            let app = new Vue({
+
+            	el: '#app',
+            	data:  {
+            		show: false
+            	},
+
+            	computed: {
+            		greetings() {
+            			if (this.show) {
+            				console.log("Test");
+	            			return "Hello World";
+            			} else {
+            				console.log("Test");
+            				return "Dot not showing";
+            			}
+            		}
+            	}, 
+
+            	// methods: {
+            	// 	greetings() {
+            	// 		if (this.show) {
+            	// 			console.log("Test");
+	            // 			return "Hello World";
+            	// 		} else {
+            	// 			console.log("Test");
+            	// 			return "Dot not showing";
+            	// 		}
+            	// 	}
+            	// }
+
+            });
+                                 
+		</script>                                               
+	</body>                                                     
+</html>                                                         
