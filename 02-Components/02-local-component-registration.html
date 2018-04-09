@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Components - Local Componenet Registration</title>
+</head>
+	<body>
+		
+		<div id="app">
+			
+			<post></post>
+
+		</div>
+		
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script>
+
+			let User = {
+
+				data() {
+					return {
+						name : 'Javed'
+					}
+				},
+
+				template: `
+					
+					<div class="user">{{ name }}</div>
+
+				`
+			}
+
+			let Post = {
+
+				data() {
+
+					return {
+						title: 'The Post'
+					}
+
+				},
+
+				components: {
+					'user' : User
+				},
+
+				template: `
+					
+					<div class="post">
+						<h2>{{ title }}</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint animi, ipsa necessitatibus sequi obcaecati consequatur quae perspiciatis. Sunt ducimus voluptatum nam doloremque, molestiae commodi voluptatibus incidunt accusamus, alias consequuntur officiis.</p>
+						<user></user> 			
+
+					</div>
+
+				 `
+
+			}
+
+			let app = new Vue({
+
+				el: '#app',
+				components: {
+					'user': User,
+					'post': Post
+				}
+			});
+			
+		</script>
+
+	</body>
+</html>
