@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Components - Local Componenet Registration</title>
+</head>
+	<body>
+		
+		<div id="app">
+		
+			<posts></posts>
+
+		</div>
+		
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script>
+
+			let User = {
+
+				props: [
+					'user'
+				],
+
+				template: `
+					<div class="user">
+						{{ user.name }}
+					</div>
+				`
+			}
+
+			let Post = {
+
+				props: [
+
+					'post'
+
+				],
+
+				components: {
+					'user': User
+				},
+
+				template: `
+
+					<div class="post">
+						
+						<h1>{{ post.title }}</h1>
+
+						<user :user="post.user"></user>
+
+					</div>	
+
+				`
+
+			}
+
+			let Posts = {
+
+				data() {
+					return {
+
+						posts: [
+							{ id: 1, title: 'Post One', user: { name: 'Javed' } },
+							{ id: 2, title: 'Post Two', user: { name: 'Billy' } },
+							{ id: 3, title: 'Post One', user: { name: 'Billy' } }
+						]
+
+					}
+				},
+				components: {
+					'post' : Post
+				},
+
+				template: `
+
+					<div class="posts"> 
+		
+						<post v-for="post in posts" :post="post" :key="post.id"></post>
+
+					</div>
+	
+				`
+			}
+
+			let app = new Vue({
+
+				el: '#app',
+				components: {
+					'posts': Posts
+				}
+
+			});
+
+			
+		</script>
+
+	</body>
+</html>
