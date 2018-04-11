@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Components - Props Types</title>
+</head>
+	<body>
+		
+		<div id="app">
+
+			<num numbers="[1,2,4]"></num>		
+			
+		</div>
+		
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script>
+
+			let Num = {
+
+				props: {
+					'numbers': {
+						type: Number,
+						type: Array
+					}
+				},
+
+				template: `
+
+					<div>
+	
+						{{ numbers }}
+
+					</div>
+	
+				`
+
+			}
+
+
+			let app = new Vue({
+
+				el: '#app',
+				components: {
+					'num': Num
+				}
+
+			});
+
+
+
+		</script>
+
+	</body>
+</html>
