@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Components - Camel & Kebab case</title>
+</head>
+	<body>
+		
+		<div id="app">
+		
+			<!-- <num number="1"></num>	 -->
+
+			<num :number="4" :num="[2,3,4]"></num>	
+
+			
+		</div>
+		
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script>
+
+			let Num = {
+				props: [
+					'number',
+					'num'
+				],
+
+				template: `
+					<p>{{ number + 1 }} <br> {{ num[2] ^ 9 }}</p>
+
+				`
+			}
+
+
+			let app = new Vue({
+				el: '#app',
+				components: {
+					'num': Num
+				}
+
+			});
+			
+		</script>
+
+	</body>
+</html>
