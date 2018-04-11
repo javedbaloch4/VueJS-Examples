@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Components - Literal vs dynamic props</title>
+</head>
+	<body>
+		
+		<div id="app">
+		
+			<message></message>
+			
+		</div>
+		
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script>
+
+			let toLowerCase = {
+
+				props: [
+					'message'
+				],
+
+				template: `
+					<p> {{ toLowerCase }} </p>
+				`,
+
+				computed: {
+
+					toLowerCase() {
+						return this.message.toLowerCase()
+					}
+
+				}	
+
+			}
+
+			let upperCaseMessage = {
+
+				props: [
+					'message'
+				],
+
+				template: `
+					
+					<div>
+						{{ toUpperCase }}
+					</div>
+
+				`,
+
+				computed: {
+
+					toUpperCase () {
+						return this.message.toUpperCase()
+					}
+
+				}
+
+			}
+
+
+			let Message = {
+
+				components: {
+					'to-lower-case': toLowerCase,
+					'upperCaseMessage': upperCaseMessage
+				},
+
+				data() {
+
+					return {
+						message: ''
+					}
+
+				},
+
+				template: `
+					<div>
+						<input type="text" v-model="message">
+						<to-lower-case :message="message"></to-lower-case>
+						<upper-case-message :message="message"></upper-case-message>
+					</div>
+				`
+
+			}
+
+
+			let app = new Vue({
+
+				el: '#app',
+				components: {
+					'message': Message,
+					'to-lower-case': toLowerCase,
+					'upperCaseMessage' : upperCaseMessage
+				}
+
+			});
+
+
+
+		</script>
+
+	</body>
+</html>
