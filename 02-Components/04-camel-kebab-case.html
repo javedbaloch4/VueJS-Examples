@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Components - Camel & Kebab case</title>
+</head>
+	<body>
+		
+		<div id="app">
+		
+			<upload upload-endpoint="upload.php"></upload>
+
+		</div>
+		
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script>
+
+			let Upload = {
+
+				props: [
+					'uploadEndpoint'
+				],
+
+				template: `
+					<p>{{ uploadEndpoint }}</p>
+				`
+
+			}
+
+
+			let app = new Vue({
+				el: '#app',
+				components: {
+					'upload': Upload
+				}
+
+			});
+			
+		</script>
+
+	</body>
+</html>
