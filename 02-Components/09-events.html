@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Components - Props & Data</title>
+</head>
+	<body>
+		
+		<div id="app">
+
+			<register></register>
+			
+		</div>
+		
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script>
+
+			let CountryDropdown = {
+
+				template: `
+					<select id="country" @change="change" ref="country">
+						<option>Please Choose</option>
+						<option value="UK">United Kingdom</option>
+						<option value="US">United States</option>
+						<option value="IN">India</option>
+					</select>
+				`,
+
+				methods: {
+
+					change () {
+						this.$emit('input', this.$refs.country.value);
+					}
+
+				}
+
+			}
+
+			let Register = {
+
+				components: {
+					'country-dropdown': CountryDropdown
+				},
+
+				data() {
+
+					return {
+
+						form: {
+							name: '',
+							country: ''
+						}
+					}
+
+				},
+
+				template: `
+
+					<form>
+
+						<div class="form__group">
+		
+							<label for="name">Name:</label>
+							<input type="text" v-model="form.name" id="name">
+							
+						</div>
+
+						<div class="form__group">
+							<label for="country">Country</label>
+							<country-dropdown v-model="form.country"></country-dropdown>
+						</div>
+
+						{{ form }}
+
+					</form>
+
+				`
+
+			}
+
+			let App = new Vue({
+
+				el: '#app',
+
+				components: {
+					'register': Register,
+				}
+
+			});
+
+
+		</script>
+
+	</body>
+</html>
