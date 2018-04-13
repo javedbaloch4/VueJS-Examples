@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Components - Props & Data</title>
+</head>
+	<body>
+		
+		<div id="app">
+
+			<counter :numbers="[1,2,3,4,5]"></counter>
+			
+		</div>
+		
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script>
+
+			let Counter = {
+
+				props: ['numbers'],
+
+				template: `
+				
+					<div>
+					
+						<ul>
+							<li v-for="number, index in numbers">{{ number }}</li>
+						</ul>
+
+					</div>
+	
+				`
+
+			}
+
+			
+			let App = new Vue({
+
+				el: '#app',
+				data: {
+
+				},
+
+				components: {
+					'counter': Counter
+				}
+
+			});
+
+
+
+		</script>
+
+	</body>
+</html>
