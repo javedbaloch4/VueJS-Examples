@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Components - Props & Data</title>
+</head>
+	<body>
+		
+		<div id="app">
+	
+			<increment></increment>
+			<one></one>			
+			<two></two>
+
+		</div>
+		
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+		<script>
+
+			let Bus = new Vue()
+
+			let One = {
+
+				data() {
+
+					return {
+						number: 0
+					}
+
+				},
+
+				template: `<span>{{ number }}</span>`,
+
+				mounted() {
+					Bus.$on('increment', () => {
+
+						this.number++
+
+					})
+				}
+
+			}
+
+			let Two = {
+				data() {
+
+					return {
+						number: 2
+					}
+
+				},
+
+				template: `<span>{{ number }}</span>`,
+
+				mounted() {
+					Bus.$on('increment', () => {
+
+						this.number = this.number * 2 
+
+					})
+				}
+			}
+
+			let Increment = {
+
+				template: `
+	
+					<div>
+						<button @click.prevent="increment">Increment</button>
+					</div>
+
+				`,
+
+
+				methods: {
+					increment () {
+						Bus.$emit('increment')
+					}
+				}
+
+			}
+			
+
+			let App = new Vue({
+
+				el: '#app',
+
+				components: {
+					'one': One,
+					'two': Two,
+					'increment': Increment
+				}
+
+			});
+
+
+		</script>
+
+	</body>
+</html>
