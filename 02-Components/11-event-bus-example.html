@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Components - Event Bus Example</title>
+</head>
+	<body>
+		
+		<div id="app">
+
+			<chat-notification></chat-notification>			
+			<chat></chat>
+
+		</div>
+		
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
+
+		<script>
+
+			let bus = new Vue();
+
+			setInterval(() => {
+
+				bus.$emit('person:joined', {
+					id: 1,
+					name: faker.name.findName()
+				});
+
+			}, 5000);
+
+			let ChatNotification = {
+
+				data() {
+					return {
+						person: null
+					}
+				},
+
+				template: `
+
+					<div v-if="person">
+						{{ person.name }} just joined
+					</div>
+	
+				`,
+
+				mounted() {
+					bus.$on('person:joined', (person) => {
+						this.person = person
+
+						setTimeout(() => {
+							this.person = null
+						}, 2000);
+
+					});
+				}
+
+			}
+
+			let Person = {
+
+				props: [
+					'person'
+				],
+
+				template: `
+					<div class="person">
+				
+						{{ person.name }}
+
+					</div>	 
+				`
+			}
+
+			let People = {
+
+				components: {
+					'person': Person
+				},
+
+				data () {
+					return {
+						people: []
+					}
+				},
+
+				template: `
+	
+					<div class="people">
+
+						<person  v-for="person in people" :person="person" :key="person.id"></person>
+
+					</div>
+		
+				`,
+
+				mounted() {
+					bus.$on('person:joined', (person) => {
+						this.people.push(person)
+					})
+				}
+
+			}
+
+			let Chat = {
+
+				components: {
+					'people': People
+				},
+
+				template: `
+	
+					<div class="chat">
+			
+						<people></people>
+
+					</div>
+	
+				`
+			}
+
+			let app = new Vue({
+
+				el: '#app',
+				components: {
+					'chat': Chat,
+					'chat-notification': ChatNotification
+				}
+
+
+			});
+	
+		</script>
+
+	</body>
+</html>
