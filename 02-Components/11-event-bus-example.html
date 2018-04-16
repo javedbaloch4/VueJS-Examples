@@ -8,7 +8,7 @@
 		
 		<div id="app">
 
-			<chat-notification></chat-notification>			
+			<message></message>			
 			<chat></chat>
 
 		</div>
@@ -29,31 +29,33 @@
 
 			}, 5000);
 
-			let ChatNotification = {
+			let Message = {
 
 				data() {
 					return {
-						person: null
+						message: null
 					}
 				},
 
 				template: `
 
-					<div v-if="person">
-						{{ person.name }} just joined
+					<div class="message" v-if="message">
+						{{ message }}
 					</div>
 	
 				`,
 
 				mounted() {
-					bus.$on('person:joined', (person) => {
-						this.person = person
+					
+					bus.$on('message:set', (message) => {
+						this.message = message
 
 						setTimeout(() => {
-							this.person = null
-						}, 2000);
+							this.message = null
+						}, 2000)
 
 					});
+
 				}
 
 			}
@@ -98,6 +100,9 @@
 				mounted() {
 					bus.$on('person:joined', (person) => {
 						this.people.push(person)
+
+						bus.$emit('message:set', `${person.name} has joined`)
+
 					})
 				}
 
@@ -125,7 +130,7 @@
 				el: '#app',
 				components: {
 					'chat': Chat,
-					'chat-notification': ChatNotification
+					'message': Message
 				}
 
 
